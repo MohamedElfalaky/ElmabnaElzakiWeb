@@ -30,6 +30,8 @@ class StackedRouterWeb extends _i5.RootStackRouter {
         barrierDismissible: false,
       );
     },
+
+///// to be read
     HomeViewRoute.name: (routeData) {
       return _i5.CustomPage<dynamic>(
         routeData: routeData,
