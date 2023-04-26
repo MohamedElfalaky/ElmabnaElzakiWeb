@@ -1,9 +1,12 @@
+import 'package:stacked_services/stacked_services.dart';
+import 'package:zah_website/app/app.router.dart';
 import 'package:zah_website/ui/common/app_colors.dart';
 import 'package:zah_website/ui/common/app_constants.dart';
 import 'package:zah_website/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-
+import 'package:zah_website/ui/views/aboutus/pages/aboutus_view.dart';
+import 'package:zah_website/ui/views/why/pages/why_view.dart';
 import 'home_viewmodel.dart';
 
 class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
@@ -24,11 +27,16 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
               verticalSpaceLarge,
               Column(
                 children: [
-                  const Text(
-                    'Hello, DESKTOP UI!',
-                    style: TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.w900,
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WhyView()));
+                     },
+                    child: const Text(
+                      'Hello Home , DESKTOP UI!',
+                      style: TextStyle(
+                        fontSize: 35,
+                        fontWeight: FontWeight.w900,
+                      ),
                     ),
                   ),
                   verticalSpaceMedium,

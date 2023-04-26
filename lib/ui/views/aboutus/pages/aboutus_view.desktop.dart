@@ -3,70 +3,50 @@ import 'package:zah_website/ui/common/app_constants.dart';
 import 'package:zah_website/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:zah_website/ui/views/aboutus/widgets/about_item.dart';
+import 'package:zah_website/ui/views/aboutus/widgets/about_item_features.dart';
 
-import 'home_viewmodel.dart';
+import 'aboutus_viewmodel.dart';
 
-class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
-  const HomeViewDesktop({super.key});
+class AboutUsViewDesktop extends ViewModelWidget<AboutUsModel> {
+  const AboutUsViewDesktop({super.key});
 
   @override
-  Widget build(BuildContext context, HomeViewModel viewModel) {
+  Widget build(BuildContext context, AboutUsModel viewModel) {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
         child: SizedBox(
           width: kdDesktopMaxContentWidth,
           height: kdDesktopMaxContentHeight,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+          child: ListView(
+            children: const[
               verticalSpaceLarge,
-              Column(
-                children: [
-                  const Text(
-                    'Hello, DESKTOP UI!',
-                    style: TextStyle(
-                      fontSize: 35,
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
-                  verticalSpaceMedium,
-                  MaterialButton(
-                    color: Colors.black,
-                    onPressed: viewModel.incrementCounter,
-                    child: Text(
-                      viewModel.counterLabel,
-                      style: const TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ],
+              AboutItem(
+                title: "من نحن",
+                icon: "about1.svg",
+                otherChild: AboutItemFeatures(),
+                body: '''
+                    زاه سوفت نوفر حلول رقمية مبتكرة وتطوير لمختلف أنواع البرمجيات والأنظمة للمنشآت الصغيرة والمتوسطة والمؤسسات الحكومية داخل المملكة العربية السعودية وخارجها .
+
+نستخدم أحدث التقنيات في السوق مع فريق من المحترفين والمتخصصين في المجال , نعمل بخطى ثابتة وشغف لنقدم أفضل جودة ممكنة ونطور برمجيات تلبي تطلعاتك وتزيد من انتاجية نشاطك التجاري وتتناسب مع جمهورك المستهدف .
+                ''',
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  MaterialButton(
-                    color: kcDarkGreyColor,
-                    child: const Text(
-                      'Show Dialog',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    onPressed: viewModel.showDialog,
-                  ),
-                  MaterialButton(
-                    color: kcDarkGreyColor,
-                    child: const Text(
-                      'Show Bottom Sheet',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    onPressed: viewModel.showBottomSheet,
-                  ),
-                ],
-              )
+              AboutItem(
+                title: "هدفنا",
+                icon: "about2.svg",
+                body: '''
+                نهدف لتوفير أفضل الخدمات الداعمة للتحسين من أداء المنشآت والمؤسسات وزيادة الاداء بطريقة فعالة والتعزيز من تواجدها على الانترنت , باستغلال أحدث التقنيات والتحسين المستمر في الخدمات , لضمان رضا عملائنا .
+                ''',
+              ),
+              AboutItem(
+                title: "رؤيتنا",
+                icon: "about3.svg",
+                body: '''
+                تحقيق النجاح والمساهمة في التحول الرقمي الذى تشهده المملكة العربية السعودية عبر مستويات عالية من الخبرة والابداع , لنكون في المرتبة الأولى في السعودية والعالم العربي .
+                ''',
+              ),
+              verticalSpaceLarge,
             ],
           ),
         ),

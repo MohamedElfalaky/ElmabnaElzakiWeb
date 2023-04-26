@@ -3,13 +3,13 @@ import 'package:zah_website/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import 'home_viewmodel.dart';
+import 'aboutus_viewmodel.dart';
 
-class HomeViewTablet extends ViewModelWidget<HomeViewModel> {
-  const HomeViewTablet({super.key});
+class AboutUsViewTablet extends ViewModelWidget<AboutUsModel> {
+  const AboutUsViewTablet({super.key});
 
   @override
-  Widget build(BuildContext context, HomeViewModel viewModel) {
+  Widget build(BuildContext context, AboutUsModel viewModel) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
