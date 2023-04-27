@@ -29,7 +29,8 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                 children: [
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WhyView()));
+                      Navigator.pushNamed(context, '/contact-us');
+                      // Navigator.push(context, MaterialPageRoute(builder: (context)=>WhyView()));
                      },
                     child: const Text(
                       'Hello Home , DESKTOP UI!',

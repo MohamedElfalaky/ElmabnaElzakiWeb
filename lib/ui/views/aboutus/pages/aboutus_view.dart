@@ -18,7 +18,7 @@ class AboutUsView extends StackedView<AboutUsModel> {
       ) {
     return ScreenTypeLayout.builder(
       mobile: (_) => const  AboutUsViewMobile(),
-      // tablet: (_) => const  AboutUsViewTablet(),
+      tablet: (_) => const  AboutUsViewTablet(),
       desktop: (_) => const AboutUsViewDesktop(),
     );
   }

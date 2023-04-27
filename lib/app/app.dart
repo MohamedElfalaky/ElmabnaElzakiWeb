@@ -10,9 +10,9 @@ import 'package:stacked_services/stacked_services.dart';
 
 @StackedApp(
   routes: [
-    CustomRoute(page: StartupView, initial: true),
-    CustomRoute(page: HomeView),
-    CustomRoute(page: AboutUsView),
+    // CustomRoute(page: StartupView, initial: true),
+    // CustomRoute(page: HomeView),
+    // CustomRoute(page: AboutUsView),
     // @stacked-route
 
     CustomRoute(page: UnknownView, path: '/404'),

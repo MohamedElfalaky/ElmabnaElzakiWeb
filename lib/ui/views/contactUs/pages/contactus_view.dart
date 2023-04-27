@@ -2,31 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
 
-import 'why_view.desktop.dart';
-import 'why_view.tablet.dart';
-import 'why_view.mobile.dart';
-import 'why_viewmodel.dart';
+import 'contactus_view.desktop.dart';
+import 'contactus_view.tablet.dart';
+import 'contactus_view.mobile.dart';
+import 'contactus_viewmodel.dart';
 
-class WhyView extends StackedView<WhyModel> {
-  const WhyView({super.key});
+class ContactUsView extends StackedView<ContactUsModel> {
+  const ContactUsView({super.key});
 
   @override
   Widget builder(
       BuildContext context,
-      WhyModel viewModel,
+      ContactUsModel viewModel,
       Widget? child,
       ) {
     return ScreenTypeLayout.builder(
-      mobile: (_) => const  WhyViewMobile(),
-      tablet: (_) => const  WhyViewTablet(),
-      desktop: (_) => const WhyViewDesktop(),
+      mobile: (_) => const  ContactUsViewMobile(),
+      tablet: (_) => const  ContactUsViewTablet(),
+      desktop: (_) => const ContactUsViewDesktop(),
     );
   }
 
 
   @override
-  WhyModel viewModelBuilder(
+  ContactUsModel viewModelBuilder(
       BuildContext context,
       ) =>
-      WhyModel();
+      ContactUsModel();
 }

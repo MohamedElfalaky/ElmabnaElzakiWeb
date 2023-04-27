@@ -4,52 +4,56 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:zah_website/ui/common/shared_styles.dart';
 import 'package:zah_website/ui/common/ui_helpers.dart';
+import 'package:zah_website/ui/common/widgets/custom_header.dart';
+import 'package:zah_website/ui/views/contactUs/widgets/contactus_item.dart';
 import 'package:zah_website/ui/views/why/widgets/why_item.dart';
 
-import 'why_viewmodel.dart';
+import 'contactus_viewmodel.dart';
 
-class  WhyViewDesktop extends ViewModelWidget<WhyModel> {
-  const WhyViewDesktop({super.key});
+class ContactUsViewDesktop extends ViewModelWidget<ContactUsModel> {
+  const ContactUsViewDesktop({super.key});
 
   @override
-  Widget build(BuildContext context, WhyModel viewModel) {
+  Widget build(BuildContext context, ContactUsModel viewModel) {
     return Scaffold(
-      appBar: AppBar(),
       body: Center(
-        child: SizedBox(
+        child:  SizedBox(
           width: kdDesktopMaxContentWidth,
-          height: kdDesktopMaxContentHeight,
-          child: ListView(
+          child: Column(
             children: [
-              verticalSpaceLarge,
-              Column(crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("لماذا نحن ؟",style: ktsTitleText.copyWith(fontSize: 20,color: kcPrimaryColor,fontWeight: FontWeight.w200),textAlign: TextAlign.center),
-                  verticalSpaceMedium,
-                  Text("نقدم خدمات شاملة للتحسين من أداء منشأتك وتعزّز من تواجدها الرقمي",style: ktsTitleText.copyWith(fontSize: 17,color: kcSecondaryColor,fontWeight: FontWeight.w100),textAlign: TextAlign.center),
-                  verticalSpaceLarge,
-                ],
-              ),
-              Directionality(
-                textDirection: TextDirection.rtl,
-                child: GridView.builder(
-                    itemCount: WhyModel.whyList.length,
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        childAspectRatio: 1,
-                        mainAxisExtent: 250,
-                        crossAxisSpacing: 5,
-                        mainAxisSpacing: 20),
-                    itemBuilder: (BuildContext context, int index) {
-                      return WhyItem(
-                        title: WhyModel.whyList[index]["title"]!,
-                        body: WhyModel.whyList[index]["body"]!,
-                        icon: WhyModel.whyList[index]["icon"]!,);
-                    }
+              CustomHeader(currentPage: "تواصل معنا"),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 0),
+                  child: ListView(
+                    children: [
+                      verticalSpaceLarge,
+                      Directionality(
+                        textDirection: TextDirection.rtl,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 180),
+                          child: GridView.builder(
+                              itemCount: ContactUsModel.contactUsList.length,
+                              physics: NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  childAspectRatio: 1,
+                                  mainAxisExtent: 130,
+                                  crossAxisSpacing: 10,
+                                  mainAxisSpacing: 50),
+                              itemBuilder: (BuildContext context, int index) {
+                                return ContactUsItem(
+                                  title: ContactUsModel.contactUsList[index]["title"]!,
+                                  icon:  ContactUsModel.contactUsList[index]["icon"]!,);
+                              }
 
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
