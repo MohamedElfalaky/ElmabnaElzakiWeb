@@ -12,6 +12,7 @@ import 'package:stacked_services/stacked_services.dart' as _i4;
 import '../ui/views/home/home_view.dart' as _i2;
 import '../ui/views/startup/startup_view.dart' as _i1;
 import '../ui/views/unknown/unknown_view.dart' as _i3;
+import '../ui/views/aboutus/pages/aboutus_view.dart' as _about;
 
 final stackedRouter =
     StackedRouterWeb(navigatorKey: _i4.StackedService.navigatorKey);
@@ -40,6 +41,15 @@ class StackedRouterWeb extends _i5.RootStackRouter {
         barrierDismissible: false,
       );
     },
+    ///// to be read AboutUs
+    AboutUsViewRoute.name: (routeData) {
+      return _i5.CustomPage<dynamic>(
+        routeData: routeData,
+        child: const _about.AboutUsView(),
+        opaque: true,
+        barrierDismissible: false,
+      );
+    },
     UnknownViewRoute.name: (routeData) {
       return _i5.CustomPage<dynamic>(
         routeData: routeData,
@@ -57,9 +67,13 @@ class StackedRouterWeb extends _i5.RootStackRouter {
           path: '/',
         ),
         _i5.RouteConfig(
-          HomeViewRoute.name,
-          path: '/home-view',
+          AboutUsViewRoute.name,
+          path: '/about-us',
         ),
+    _i5.RouteConfig(
+      HomeViewRoute.name,
+      path: '/home-view',
+    ),
         _i5.RouteConfig(
           UnknownViewRoute.name,
           path: '/404',
@@ -98,6 +112,17 @@ class HomeViewRoute extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [_about.AboutUsView]
+class AboutUsViewRoute extends _i5.PageRouteInfo<void> {
+  const AboutUsViewRoute()
+      : super(
+    AboutUsViewRoute.name,
+    path: '/about-us',
+  );
+
+  static const String name = 'AboutUs';
+}
+/// generated route for
 /// [_i3.UnknownView]
 class UnknownViewRoute extends _i5.PageRouteInfo<void> {
   const UnknownViewRoute()
@@ -109,7 +134,7 @@ class UnknownViewRoute extends _i5.PageRouteInfo<void> {
   static const String name = 'UnknownView';
 }
 
-extension RouterStateExtension on _i4.RouterService {
+ extension RouterStateExtension on _i4.RouterService {
   Future<dynamic> navigateToStartupView(
       {void Function(_i5.NavigationFailure)? onFailure}) async {
     return navigateTo(
@@ -125,7 +150,13 @@ extension RouterStateExtension on _i4.RouterService {
       onFailure: onFailure,
     );
   }
-
+  Future<dynamic> navigateToAboutUsView(
+      {void Function(_i5.NavigationFailure)? onFailure}) async {
+    return navigateTo(
+      const AboutUsViewRoute(),
+      onFailure: onFailure,
+    );
+  }
   Future<dynamic> navigateToUnknownView(
       {void Function(_i5.NavigationFailure)? onFailure}) async {
     return navigateTo(
@@ -149,7 +180,13 @@ extension RouterStateExtension on _i4.RouterService {
       onFailure: onFailure,
     );
   }
-
+  Future<dynamic> replaceWithAboutUsView(
+      {void Function(_i5.NavigationFailure)? onFailure}) async {
+    return replaceWith(
+      const AboutUsViewRoute(),
+      onFailure: onFailure,
+    );
+  }
   Future<dynamic> replaceWithUnknownView(
       {void Function(_i5.NavigationFailure)? onFailure}) async {
     return replaceWith(

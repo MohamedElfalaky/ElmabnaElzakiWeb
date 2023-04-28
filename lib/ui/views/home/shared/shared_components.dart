@@ -5,6 +5,8 @@ import 'package:zah_website/ui/common/ui_helpers.dart';
 
 Widget oneService(String sericeName) {
   return Row(
+    // mainAxisAlignment: MainAxisAlignment.center,
+    // mainAxisSize: MainAxisSize.min,
     children: [
       const Icon(
         Icons.check_box_outlined,
@@ -43,6 +45,21 @@ List<List> whyZahSoft = [
 ];
 
 ///
+List whyZahSoftMobile = [
+  {"name": "تحليل احتياجات المنشأة بعناية", "pic": "1.png"},
+  {"name": "رفع الكفاءة الإنتاجية", "pic": "2.png"},
+  {"name": "أتمتتة المهام", "pic": "3.png"},
+  {"name": "التحسين من جودة الاتصال", "pic": "4.png"},
+  {"name": "نطبق منهجية أجايل ١٠٠٪", "pic": "5.png"},
+  {"name": "المزيد من الأمان", "pic": "6.png"},
+  {"name": "سرعة أداء عاملين المنشأة", "pic": "7.png"},
+  {"name": "تواجد رقمي دائم", "pic": "8.png"},
+  {"name": "فريق برمجي متكامل", "pic": "9.png"},
+  {"name": "إتفاقية سرية المعلومات", "pic": "10.png"},
+  {"name": "تحليل احتياجية المنشأة بعناية", "pic": "11.png"},
+  {"name": "رفع الكفاءة الإنتاجية", "pic": "12.png"},
+];
+
 ///
 
 InputDecoration setTextInputDecoration(
