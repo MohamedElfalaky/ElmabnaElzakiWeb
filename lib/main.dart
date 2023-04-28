@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:zah_website/app/app.bottomsheets.dart';
@@ -28,6 +29,23 @@ class MyApp extends StatelessWidget {
     return ResponsiveApp(
         preferDesktop: true,
         builder: (_) => MaterialApp.router(
+              debugShowCheckedModeBanner: false,
+              scrollBehavior:
+                  const ScrollBehavior().copyWith(scrollbars: false),
+              // ignore: prefer_const_constructors
+              locale: Locale(
+                  'ar', 'SA'), // Change the language and region code as needed
+              localizationsDelegates: const [
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+                // Add additional delegates for other packages you're using
+              ],
+              supportedLocales: const [
+                Locale('en', 'US'), // English
+                Locale('ar', 'SA'), // Arabic
+                // Add additional locales as needed
+              ],
               title: 'Stacked Application',
               theme: Theme.of(context).copyWith(
                 primaryColor: kcBackgroundColor,
