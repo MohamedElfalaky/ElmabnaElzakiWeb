@@ -14,6 +14,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "archive",
+      "rootUri": "file:///Users/abanoub/.pub-cache/hosted/pub.dev/archive-3.3.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "args",
       "rootUri": "file:///Users/abanoub/.pub-cache/hosted/pub.dev/args-2.4.0",
       "packageUri": "lib/",
@@ -76,6 +82,12 @@
     {
       "name": "built_value",
       "rootUri": "file:///Users/abanoub/.pub-cache/hosted/pub.dev/built_value-8.4.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "carousel_slider",
+      "rootUri": "file:///Users/abanoub/.pub-cache/hosted/pub.dev/carousel_slider-4.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -176,6 +188,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_localizations",
+      "rootUri": "file:///Users/abanoub/Developer/flutter/packages/flutter_localizations",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_svg",
       "rootUri": "file:///Users/abanoub/.pub-cache/hosted/pub.dev/flutter_svg-2.0.5",
       "packageUri": "lib/",
@@ -254,6 +272,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///Users/abanoub/.pub-cache/hosted/pub.dev/intl-0.17.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "io",
       "rootUri": "file:///Users/abanoub/.pub-cache/hosted/pub.dev/io-1.0.4",
       "packageUri": "lib/",
@@ -286,6 +310,12 @@
     {
       "name": "logging",
       "rootUri": "file:///Users/abanoub/.pub-cache/hosted/pub.dev/logging-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "lottie",
+      "rootUri": "file:///Users/abanoub/.pub-cache/hosted/pub.dev/lottie-2.3.2",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -396,6 +426,12 @@
       "rootUri": "file:///Users/abanoub/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.4",
       "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "pointycastle",
+      "rootUri": "file:///Users/abanoub/.pub-cache/hosted/pub.dev/pointycastle-3.7.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
     },
     {
       "name": "pool",
@@ -620,7 +656,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2023-04-28T17:12:00.265483Z",
+  "generated": "2023-04-28T17:23:09.477600Z",
   "generator": "pub",
   "generatorVersion": "2.19.6"
 }

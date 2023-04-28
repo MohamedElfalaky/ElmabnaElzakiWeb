@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -13,6 +14,7 @@ import 'package:zah_website/ui/views/aboutus/pages/aboutus_view.dart';
 import 'package:zah_website/ui/views/contactUs/pages/contactus_view.dart';
 import 'package:zah_website/ui/views/home/home_view.dart';
 import 'package:zah_website/ui/views/why/pages/why_view.dart';
+
 void main() {
   setPathUrlStrategy();
   setupLocator(
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
     return ResponsiveApp(
         preferDesktop: true,
         builder: (_) => MaterialApp(
-          debugShowCheckedModeBanner: false,
+              debugShowCheckedModeBanner: false,
               title: 'ZahSoft Web',
               theme: Theme.of(context).copyWith(
                 primaryColor: kcBackgroundColor,
@@ -39,8 +41,8 @@ class MyApp extends StatelessWidget {
                 textTheme: GoogleFonts.cairoTextTheme()
                     .apply(bodyColor: kcSecondaryColor),
               ),
-          initialRoute: '/',
-          routes: {
+              initialRoute: '/',
+              routes: {
                 '/': (context) => HomeView(),
                 '/about-us': (context) => AboutUsView(),
                 '/why': (context) => WhyView(),

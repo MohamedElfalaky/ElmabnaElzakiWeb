@@ -1,4 +1,5 @@
 import 'package:zah_website/ui/common/app_colors.dart';
+import 'package:zah_website/ui/common/footer.dart';
 import 'package:zah_website/ui/common/shared_styles.dart';
 import 'package:zah_website/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
@@ -16,42 +17,45 @@ class ContactUsViewTablet extends ViewModelWidget<ContactUsModel> {
   Widget build(BuildContext context, ContactUsModel viewModel) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: Center(
-            child:Column(
-              children: [
-                CustomHeader(currentPage: "تواصل معنا"),
-                Expanded(
-                  child: ListView(
-                    children: [
-                      verticalSpaceLarge,
-                      Directionality(
-                        textDirection: TextDirection.rtl,
+        child: Center(
+          child: Column(
+            children: [
+              CustomHeader(currentPage: "تواصل معنا"),
+              Expanded(
+                child: ListView(
+                  children: [
+                    verticalSpaceLarge,
+                    Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
                         child: GridView.builder(
                             itemCount: ContactUsModel.contactUsList.length,
                             physics: NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                childAspectRatio: 1,
-                                mainAxisExtent: 150,
-                                crossAxisSpacing: 5,
-                                mainAxisSpacing: 20),
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    childAspectRatio: 1,
+                                    mainAxisExtent: 150,
+                                    crossAxisSpacing: 5,
+                                    mainAxisSpacing: 20),
                             itemBuilder: (BuildContext context, int index) {
                               return ContactUsItem(
-                                title: ContactUsModel.contactUsList[index]["title"]!,
-                                icon:  ContactUsModel.contactUsList[index]["icon"]!,);
-                            }
-
-                        ),
+                                title: ContactUsModel.contactUsList[index]
+                                    ["title"]!,
+                                icon: ContactUsModel.contactUsList[index]
+                                    ["icon"]!,
+                              );
+                            }),
                       ),
-                    ],
-                  ),
+                    ),
+                    verticalSpaceLarge,
+                    Footer()
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
