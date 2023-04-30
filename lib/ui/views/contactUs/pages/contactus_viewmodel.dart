@@ -9,7 +9,7 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../../common/app_icons.dart';
-// import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactUsModel extends BaseViewModel {
   static final List<Map<String, dynamic>> contactUsList = [
@@ -31,17 +31,20 @@ class ContactUsModel extends BaseViewModel {
     {
       "title": "السجل التجاري 1010692755",
       "icon": iconCopyright,
-      "onTap": () {}
+      "onTap": () {
+        launch("https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=0000011166");
+        //https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=0000011166
+      }
     },
   ];
 
  static void  openWhatsapp() async {
-    // Uri _url = Uri.parse(
-    //     "https://api.whatsapp.com/send/?phone=+966567830001&text&type=phone_number&app_absent=0");
-    // if (!await launch(
-    //     "https://api.whatsapp.com/send/?phone=+966567830001&text&type=phone_number&app_absent=0")) {
-    //   throw 'Could not launch $_url';
-    // }
+    Uri _url = Uri.parse(
+        "https://api.whatsapp.com/send/?phone=+966567830001&text&type=phone_number&app_absent=0");
+    if (!await launch(
+        "https://api.whatsapp.com/send/?phone=+966567830001&text&type=phone_number&app_absent=0")) {
+      throw 'Could not launch $_url';
+    }
   }
 
   final _dialogService = locator<DialogService>();

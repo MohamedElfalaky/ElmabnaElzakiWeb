@@ -16,7 +16,7 @@ class CustomHeader extends StatelessWidget {
         child: InkWell(
           onTap: title != currentPage ? onTap : null,
           child: Text(
-            title,
+            title == "الرئيسية" ? "الرئيسية    خدماتنا" : title,
             style: ktsTitleText.copyWith(
                 color: currentPage == title ? kcPrimaryColor : kcSecondaryColor,
                 fontSize: 15),
@@ -33,23 +33,31 @@ class CustomHeader extends StatelessWidget {
         child: Directionality(
           textDirection: TextDirection.rtl,
           child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset("assets/zahlogo.jpeg", fit: BoxFit.fill),
+                InkWell(
+                    onTap: () => currentPage == "الرئيسية"
+                        ? null
+                        : Navigator.pushNamed(context, '/'),
+                    child:
+                        Image.asset("assets/zahlogo.jpeg", fit: BoxFit.fill)),
                 RichText(
                   text: TextSpan(
                     children: [
                       TextSpan(
                           text: 'زاهـ',
-                          style: ktsTitleText.copyWith(
-                              color: kcPrimaryColor, fontSize: 17)),
+                          style: ktsRegularText.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: kcPrimaryColor)),
                       TextSpan(
-                        text: ' سوفت لتقنية المعلومات',
-                        style: ktsTitleText.copyWith(
-                            fontSize: 17, color: kcSecondaryColor),
-                      ),
+                          text: ' سوفت لتقنية المعلومات',
+                          style: ktsRegularText.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: kcSecondaryColor)
+                          //  ktsTitleText.copyWith(
+                          //     fontSize: 12, color: kcSecondaryColor),
+                          ),
                     ],
                   ),
                 ),
@@ -61,9 +69,9 @@ class CustomHeader extends StatelessWidget {
                 _customText("الرئيسية", () {
                   Navigator.pushNamed(context, '/');
                 }),
-                _customText("خدماتنا", () {
-                  Navigator.pushNamed(context, '/');
-                }),
+                // _customText("خدماتنا", () {
+                //   Navigator.pushNamed(context, '/');
+                // }),
                 _customText("من نحن", () {
                   Navigator.pushNamed(context, '/about-us');
                 }),
@@ -78,43 +86,6 @@ class CustomHeader extends StatelessWidget {
           ]),
         ),
       ),
-      tablet: (_) => Container(
-        height: 70,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(color: Colors.white),
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.asset("assets/zahlogo.jpeg", fit: BoxFit.fill),
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                          text: 'زاهـ',
-                          style: ktsTitleText.copyWith(
-                              color: kcPrimaryColor, fontSize: 17)),
-                      TextSpan(
-                        text: ' سوفت لتقنية المعلومات',
-                        style: ktsTitleText.copyWith(
-                            fontSize: 17, color: kcSecondaryColor),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            IconButton(
-                onPressed: () {
-                  scaffoldKey!.currentState!.openDrawer();
-                },
-                icon: Icon(Icons.menu))
-          ]),
-        ),
-      ),
       mobile: (_) => Container(
         height: 70,
         width: MediaQuery.of(context).size.width,
@@ -124,21 +95,29 @@ class CustomHeader extends StatelessWidget {
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset("assets/zahlogo.jpeg", fit: BoxFit.fill),
+                InkWell(
+                    onTap: () => currentPage == "الرئيسية"
+                        ? null
+                        : Navigator.pushNamed(context, '/'),
+                    child:
+                        Image.asset("assets/zahlogo.jpeg", fit: BoxFit.fill)),
                 RichText(
                   text: TextSpan(
                     children: [
                       TextSpan(
                           text: 'زاهـ',
-                          style: ktsTitleText.copyWith(
-                              color: kcPrimaryColor, fontSize: 17)),
+                          style: ktsRegularText.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: kcPrimaryColor)),
                       TextSpan(
-                        text: ' سوفت لتقنية المعلومات',
-                        style: ktsTitleText.copyWith(
-                            fontSize: 17, color: kcSecondaryColor),
-                      ),
+                          text: ' سوفت لتقنية المعلومات',
+                          style: ktsRegularText.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: kcSecondaryColor)
+                          //  ktsTitleText.copyWith(
+                          //     fontSize: 12, color: kcSecondaryColor),
+                          ),
                     ],
                   ),
                 ),

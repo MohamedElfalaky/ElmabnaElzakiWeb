@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+// import 'package:url_launcher/url_launcher.dart';
 import 'package:zah_website/ui/common/ui_helpers.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({super.key});
+  final GlobalKey? serviceDataKey;
+  final GlobalKey? orderDataKey;
+  const Footer({super.key, this.serviceDataKey, this.orderDataKey});
 
   @override
   Widget build(BuildContext context) {
@@ -20,60 +24,102 @@ class Footer extends StatelessWidget {
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    "الرئيسية",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  Text("الخدمات", style: TextStyle(color: Colors.white)),
-                  Text("من نحن", style: TextStyle(color: Colors.white)),
-                  Text("لماذا نحن", style: TextStyle(color: Colors.white)),
-                  Text("لماذا نحن", style: TextStyle(color: Colors.white)),
-                ],
-              ),
-              Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      "اطلب خدمتنا",
+                children: [
+                  InkWell(
+                    onTap: () => Navigator.pushNamed(context, '/'),
+                    child: const Text(
+                      "الرئيسية",
                       style: TextStyle(color: Colors.white),
                     ),
-                    Text("سياستنا", style: TextStyle(color: Colors.white)),
-                    Text("السجل التجاري 1010692755",
-                        style: TextStyle(color: Colors.white)),
-                  ]),
+                  ),
+                  InkWell(
+                      onTap: () {
+                        // Navigator.pushNamed(
+                        //   context,
+                        //   '/',
+                        //   arguments: serviceDataKey,
+                        // );
+
+                        Scrollable.ensureVisible(
+                            duration: const Duration(seconds: 1),
+                            serviceDataKey!.currentContext!);
+                      },
+                      child: const Text("الخدمات",
+                          style: TextStyle(color: Colors.white))),
+                  InkWell(
+                      onTap: () => Navigator.pushNamed(context, '/about-us'),
+                      child: const Text("من نحن",
+                          style: TextStyle(color: Colors.white))),
+                  InkWell(
+                      onTap: () => Navigator.pushNamed(context, '/why'),
+                      child: const Text("لماذا نحن",
+                          style: TextStyle(color: Colors.white))),
+                  InkWell(
+                      onTap: () => Navigator.pushNamed(context, '/contact-us'),
+                      child: const Text("تواصل معنا",
+                          style: TextStyle(color: Colors.white))),
+                ],
+              ),
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                InkWell(
+                  onTap: () => Scrollable.ensureVisible(
+                      duration: const Duration(seconds: 1),
+                      orderDataKey!.currentContext!),
+                  child: const Text(
+                    "اطلب خدمتنا",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                const Text("سياستنا", style: TextStyle(color: Colors.white)),
+                const Text("السجل التجاري 1010692755",
+                    style: TextStyle(color: Colors.white)),
+                const Text("الرقم الضريبي 0000011166",
+                    style: TextStyle(color: Colors.white)),
+              ]),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.mail,
-                        color: Colors.amber,
+                      onPressed: () {
+                        () async {
+                          // final Uri _emailLaunchUri = Uri(
+                          //   scheme: 'mailto',
+                          //   path: 'example@example.com',
+                          // );
+                          // if (await canLaunch(_emailLaunchUri.toString())) {
+                          //   await launch(_emailLaunchUri.toString());
+                          // } else {
+                          //   throw 'Could not launch $_emailLaunchUri';
+                          // }
+                        };
+                      },
+                      icon: SvgPicture.asset(
+                        "email.svg",
+                        height: 18,
                       ),
                       label: const Text("CC@ZAHASOFT.COM",
                           style: TextStyle(color: Colors.white))),
                   TextButton.icon(
                       onPressed: () {},
-                      icon: const Icon(
-                        Icons.call,
-                        color: Colors.amber,
+                      icon: SvgPicture.asset(
+                        "phone-call.svg",
+                        height: 18,
                       ),
                       label: const Text("567830001 966+",
                           style: TextStyle(color: Colors.white))),
                   TextButton.icon(
                       onPressed: () {},
-                      icon: const Icon(
-                        Icons.location_on,
-                        color: Colors.amber,
+                      icon: SvgPicture.asset(
+                        "location.svg",
+                        height: 18,
                       ),
                       label: const Text("الرياض",
                           style: TextStyle(color: Colors.white))),
                   TextButton.icon(
                       onPressed: () {},
-                      icon: const Icon(
-                        Icons.wifi_calling_3_outlined,
-                        color: Colors.amber,
+                      icon: SvgPicture.asset(
+                        "whatsapp.svg",
+                        height: 18,
                       ),
                       label: const Text("تواصل معنا",
                           style: TextStyle(color: Colors.white))),
@@ -93,27 +139,52 @@ class Footer extends StatelessWidget {
             children: [
               Column(
                 // crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Text(
-                    "الرئيسية",
-                    style: TextStyle(color: Colors.white),
+                children: [
+                  InkWell(
+                    onTap: () => Navigator.pushNamed(context, '/'),
+                    child: const Text(
+                      "الرئيسية",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
-                  Text("الخدمات", style: TextStyle(color: Colors.white)),
-                  Text("من نحن", style: TextStyle(color: Colors.white)),
-                  Text("لماذا نحن", style: TextStyle(color: Colors.white)),
-                  Text("لماذا نحن", style: TextStyle(color: Colors.white)),
+                  InkWell(
+                      onTap: () => Scrollable.ensureVisible(
+                          duration: const Duration(seconds: 1),
+                          serviceDataKey!.currentContext!),
+                      child: const Text("الخدمات",
+                          style: TextStyle(color: Colors.white))),
+                  InkWell(
+                      onTap: () => Navigator.pushNamed(context, '/about-us'),
+                      child: const Text("من نحن",
+                          style: TextStyle(color: Colors.white))),
+                  InkWell(
+                      onTap: () => Navigator.pushNamed(context, '/why'),
+                      child: const Text("لماذا نحن",
+                          style: TextStyle(color: Colors.white))),
+                  InkWell(
+                      onTap: () => Navigator.pushNamed(context, '/contact-us'),
+                      child: const Text("تواصل معنا",
+                          style: TextStyle(color: Colors.white))),
                 ],
               ),
               verticalSpaceLarge,
               Column(
                   // crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "اطلب خدمتنا",
-                      style: TextStyle(color: Colors.white),
+                  children: [
+                    InkWell(
+                      onTap: () => Scrollable.ensureVisible(
+                          duration: const Duration(seconds: 1),
+                          orderDataKey!.currentContext!),
+                      child: const Text(
+                        "اطلب خدمتنا",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
-                    Text("سياستنا", style: TextStyle(color: Colors.white)),
-                    Text("السجل التجاري 1010692755",
+                    const Text("سياستنا",
+                        style: TextStyle(color: Colors.white)),
+                    const Text("السجل التجاري 1010692755",
+                        style: TextStyle(color: Colors.white)),
+                    const Text("الرقم الضريبي 0000011166",
                         style: TextStyle(color: Colors.white)),
                   ]),
               verticalSpaceLarge,
@@ -121,34 +192,46 @@ class Footer extends StatelessWidget {
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   TextButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.mail,
-                        color: Colors.amber,
+                      onPressed: () {
+                        () async {
+                          // final Uri _emailLaunchUri = Uri(
+                          //   scheme: 'mailto',
+                          //   path: 'example@example.com',
+                          // );
+                          // if (await canLaunch(_emailLaunchUri.toString())) {
+                          //   await launch(_emailLaunchUri.toString());
+                          // } else {
+                          //   throw 'Could not launch $_emailLaunchUri';
+                          // }
+                        };
+                      },
+                      icon: SvgPicture.asset(
+                        "email.svg",
+                        height: 18,
                       ),
                       label: const Text("CC@ZAHASOFT.COM",
                           style: TextStyle(color: Colors.white))),
                   TextButton.icon(
                       onPressed: () {},
-                      icon: const Icon(
-                        Icons.call,
-                        color: Colors.amber,
+                      icon: SvgPicture.asset(
+                        "phone-call.svg",
+                        height: 18,
                       ),
                       label: const Text("567830001 966+",
                           style: TextStyle(color: Colors.white))),
                   TextButton.icon(
                       onPressed: () {},
-                      icon: const Icon(
-                        Icons.location_on,
-                        color: Colors.amber,
+                      icon: SvgPicture.asset(
+                        "location.svg",
+                        height: 18,
                       ),
                       label: const Text("الرياض",
                           style: TextStyle(color: Colors.white))),
                   TextButton.icon(
                       onPressed: () {},
-                      icon: const Icon(
-                        Icons.wifi_calling_3_outlined,
-                        color: Colors.amber,
+                      icon: SvgPicture.asset(
+                        "whatsapp.svg",
+                        height: 18,
                       ),
                       label: const Text("تواصل معنا",
                           style: TextStyle(color: Colors.white))),
