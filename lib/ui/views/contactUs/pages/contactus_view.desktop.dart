@@ -56,6 +56,8 @@ class ContactUsViewDesktop extends ViewModelWidget<ContactUsModel> {
                                           ["title"]!,
                                       icon: ContactUsModel.contactUsList[index]
                                           ["icon"]!,
+                                      onTap: ContactUsModel.contactUsList[index]
+                                          ["onTap"]!,
                                     );
                                   }),
                             ),

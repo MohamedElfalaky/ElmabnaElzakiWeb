@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:zah_website/app/app.bottomsheets.dart';
 import 'package:zah_website/app/app.dialogs.dart';
@@ -6,35 +8,41 @@ import 'package:zah_website/ui/common/app_strings.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-class ContactUsModel extends BaseViewModel {
+import '../../../common/app_icons.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
- static final List<Map<String, dynamic>> contactUsList=[
+class ContactUsModel extends BaseViewModel {
+  static final List<Map<String, dynamic>> contactUsList = [
+    {"title": "567830001 966+", "icon": iconCall, "onTap": () {}},
+    {"title": "الرياض", "icon": iconLocation, "onTap": () {}},
     {
-      "title":"567830001 966+",
-      "icon":Icons.call,
+      "title": "اضفط هنا",
+      "icon": iconWhatsapp,
+      "onTap": () {
+        openWhatsapp();
+      }
     },
     {
-      "title":"الرياض",
-      "icon":Icons.add_location_rounded,
+      "title": "من الاحد الي الخميس من الساعه 9 صباحا - 6 مساء",
+      "icon": iconCalendar,
+      "onTap": () {}
     },
-   {
-     "title":"اضفط هنا",
-      "icon":Icons.call_end_outlined,
-    },
-   {
-     "title":"من الاحد الي الخميس من الساعه 9 صباحا - 6 مساء",
-      "icon":Icons.calendar_month,
-    },
-   {
-     "title":"CC@ZAHASOFT.COM",
-      "icon":Icons.email,
-    },
-   {
-     "title":"السجل التجاري 1010692755",
-      "icon":Icons.report_gmailerrorred,
+    {"title": "CC@ZAHASOFT.COM", "icon": iconEmail, "onTap": () {}},
+    {
+      "title": "السجل التجاري 1010692755",
+      "icon": iconCopyright,
+      "onTap": () {}
     },
   ];
 
+ static void  openWhatsapp() async {
+    // Uri _url = Uri.parse(
+    //     "https://api.whatsapp.com/send/?phone=+966567830001&text&type=phone_number&app_absent=0");
+    // if (!await launch(
+    //     "https://api.whatsapp.com/send/?phone=+966567830001&text&type=phone_number&app_absent=0")) {
+    //   throw 'Could not launch $_url';
+    // }
+  }
 
   final _dialogService = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();
