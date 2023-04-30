@@ -23,7 +23,12 @@ class HomeViewMobile extends ViewModelWidget<HomeViewModel> {
   final dataKey = GlobalKey();
   final servicesDataKey = GlobalKey();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
+  TextEditingController clintName = TextEditingController();
+  TextEditingController clintType = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController code = TextEditingController();
+  TextEditingController address = TextEditingController();
+  TextEditingController details = TextEditingController();
   @override
   Widget build(BuildContext context, HomeViewModel viewModel) {
     return Scaffold(
@@ -377,6 +382,7 @@ class HomeViewMobile extends ViewModelWidget<HomeViewModel> {
                                     ),
                                     verticalSpaceLarge,
                                     TextFormField(
+                                      controller: clintName,
                                       validator: (value) {
                                         if (value!.isEmpty) {
                                           return "اسم العميل مطلوب";
@@ -408,6 +414,8 @@ class HomeViewMobile extends ViewModelWidget<HomeViewModel> {
                                                 "الأهلية القانونية *"))),
                                     verticalSpaceMedium,
                                     TextFormField(
+                                      controller: phone,
+
                                       validator: (value) {
                                         String pattern =
                                             r'^\d{9}$'; // Regular expression for 10-digit phone number
@@ -425,6 +433,7 @@ class HomeViewMobile extends ViewModelWidget<HomeViewModel> {
                                     ),
                                     verticalSpaceMedium,
                                     TextFormField(
+                                      controller: code,
                                       decoration: setTextInputDecoration(
                                           lable: const Text("كود الخصم ")),
                                     ),
@@ -437,6 +446,7 @@ class HomeViewMobile extends ViewModelWidget<HomeViewModel> {
                                     ),
                                     verticalSpaceMedium,
                                     TextFormField(
+                                      controller: address,
                                       validator: (value) {
                                         if (value!.isEmpty) {
                                           return "عنوان المشروع مطلوب";
@@ -447,6 +457,7 @@ class HomeViewMobile extends ViewModelWidget<HomeViewModel> {
                                     ),
                                     verticalSpaceMedium,
                                     TextFormField(
+                                      controller: details,
                                       validator: (value) {
                                         if (value!.isEmpty) {
                                           return "وصف المشروع مطلوب";
@@ -466,7 +477,19 @@ class HomeViewMobile extends ViewModelWidget<HomeViewModel> {
                                           ),
                                           onPressed: () {
                                             if (_formKey.currentState!
-                                                .validate()) {}
+                                                .validate()) {
+                                              HomeViewModel.sendEmailMessage(body: '''
+                                                ZahWebSite with Flutter 
+                                                Form
+                                                Clint Name : ${clintName.text.toString()}
+                                                Clint type : ${_selectedItem.toString()}
+                                                Clint phone : ${phone.text.toString()}
+                                                discount code : ${code.text.toString()}
+                                                Address  : ${address.text.toString()}
+                                                Details  : ${details.text.toString()}
+                                            
+                                                ''');
+                                            }
                                           },
                                           child: const Text(
                                             "ارسل الطلب",

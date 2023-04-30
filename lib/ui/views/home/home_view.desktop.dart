@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:lottie/lottie.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+// import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:zah_website/ui/common/app_colors.dart';
 import 'package:zah_website/ui/common/shared_styles.dart';
 import 'package:zah_website/ui/common/ui_helpers.dart';
@@ -23,6 +23,13 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
   final List<String> _items = ['فرد', 'مؤسسة', 'شركة', 'شركة ذات شخص واحد'];
   final dataKey = GlobalKey();
   final servicesDataKey = GlobalKey();
+
+  TextEditingController clintName = TextEditingController();
+  TextEditingController clintType = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController code = TextEditingController();
+  TextEditingController address = TextEditingController();
+  TextEditingController details = TextEditingController();
 
   @override
   Widget build(BuildContext context, HomeViewModel viewModel) {
@@ -387,6 +394,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                                       ),
                                       verticalSpaceLarge,
                                       TextFormField(
+                                        controller: clintName,
                                         validator: (value) {
                                           if (value!.isEmpty) {
                                             return "اسم العميل مطلوب";
@@ -418,6 +426,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                                                   "الأهلية القانونية *"))),
                                       verticalSpaceMedium,
                                       TextFormField(
+                                        controller: phone,
                                         validator: (value) {
                                           String pattern =
                                               r'^\d{9}$'; // Regular expression for 10-digit phone number
@@ -435,6 +444,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                                       ),
                                       verticalSpaceMedium,
                                       TextFormField(
+                                        controller: code,
                                         decoration: setTextInputDecoration(
                                             lable: const Text("كود الخصم ")),
                                       ),
@@ -447,6 +457,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                                       ),
                                       verticalSpaceMedium,
                                       TextFormField(
+                                        controller: address,
                                         validator: (value) {
                                           if (value!.isEmpty) {
                                             return "عنوان المشروع مطلوب";
@@ -458,6 +469,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                                       ),
                                       verticalSpaceMedium,
                                       TextFormField(
+                                        controller: details,
                                         validator: (value) {
                                           if (value!.isEmpty) {
                                             return "وصف المشروع مطلوب";
@@ -477,7 +489,19 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                                             ),
                                             onPressed: () {
                                               if (_formKey.currentState!
-                                                  .validate()) {}
+                                                  .validate()) {
+                                                HomeViewModel.sendEmailMessage(body: '''
+                                                ZahWebSite with Flutter 
+                                                Form
+                                                Clint Name : ${clintName.text.toString()}
+                                                Clint type : ${_selectedItem.toString()}
+                                                Clint phone : ${phone.text.toString()}
+                                                discount code : ${code.text.toString()}
+                                                Address  : ${address.text.toString()}
+                                                Details  : ${details.text.toString()}
+                                            
+                                                ''');
+                                              }
                                             },
                                             child: const Text(
                                               "ارسل الطلب",

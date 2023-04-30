@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 import 'package:zah_website/ui/common/ui_helpers.dart';
+import 'package:zah_website/ui/views/contactUs/pages/contactus_viewmodel.dart';
+import 'package:zah_website/ui/views/home/home_viewmodel.dart';
 
 class Footer extends StatelessWidget {
   final GlobalKey? serviceDataKey;
@@ -90,17 +92,7 @@ class Footer extends StatelessWidget {
                 children: [
                   TextButton.icon(
                       onPressed: () {
-                        () async {
-                          // final Uri _emailLaunchUri = Uri(
-                          //   scheme: 'mailto',
-                          //   path: 'example@example.com',
-                          // );
-                          // if (await canLaunch(_emailLaunchUri.toString())) {
-                          //   await launch(_emailLaunchUri.toString());
-                          // } else {
-                          //   throw 'Could not launch $_emailLaunchUri';
-                          // }
-                        };
+                        HomeViewModel.sendEmailMessage(body: "");
                       },
                       icon: SvgPicture.asset(
                         "email.svg",
@@ -109,7 +101,7 @@ class Footer extends StatelessWidget {
                       label: const Text("CC@ZAHASOFT.COM",
                           style: TextStyle(color: Colors.white))),
                   TextButton.icon(
-                      onPressed: () {},
+                      onPressed: null,
                       icon: SvgPicture.asset(
                         "phone-call.svg",
                         height: 18,
@@ -125,7 +117,9 @@ class Footer extends StatelessWidget {
                       label: const Text("الرياض",
                           style: TextStyle(color: Colors.white))),
                   TextButton.icon(
-                      onPressed: () {},
+                      onPressed: () {
+                        ContactUsModel.openWhatsapp();
+                      },
                       icon: SvgPicture.asset(
                         "whatsapp.svg",
                         height: 18,
@@ -211,17 +205,7 @@ class Footer extends StatelessWidget {
                 children: [
                   TextButton.icon(
                       onPressed: () {
-                        () async {
-                          // final Uri _emailLaunchUri = Uri(
-                          //   scheme: 'mailto',
-                          //   path: 'example@example.com',
-                          // );
-                          // if (await canLaunch(_emailLaunchUri.toString())) {
-                          //   await launch(_emailLaunchUri.toString());
-                          // } else {
-                          //   throw 'Could not launch $_emailLaunchUri';
-                          // }
-                        };
+                        HomeViewModel.sendEmailMessage(body: "");
                       },
                       icon: SvgPicture.asset(
                         "email.svg",
@@ -230,7 +214,7 @@ class Footer extends StatelessWidget {
                       label: const Text("CC@ZAHASOFT.COM",
                           style: TextStyle(color: Colors.white))),
                   TextButton.icon(
-                      onPressed: () {},
+                      onPressed: null,
                       icon: SvgPicture.asset(
                         "phone-call.svg",
                         height: 18,
@@ -246,7 +230,9 @@ class Footer extends StatelessWidget {
                       label: const Text("الرياض",
                           style: TextStyle(color: Colors.white))),
                   TextButton.icon(
-                      onPressed: () {},
+                      onPressed: () {
+                        ContactUsModel.openWhatsapp();
+                      },
                       icon: SvgPicture.asset(
                         "whatsapp.svg",
                         height: 18,
