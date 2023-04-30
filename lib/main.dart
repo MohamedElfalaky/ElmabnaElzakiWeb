@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:stacked/stacked_annotations.dart';
 import 'package:zah_website/app/app.bottomsheets.dart';
 import 'package:zah_website/app/app.dialogs.dart';
 import 'package:zah_website/app/app.locator.dart';

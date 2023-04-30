@@ -102,8 +102,8 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                           child: CarouselSlider(
                             // carouselController: _pageController,
                             options: CarouselOptions(
-                              height: 280.0,
-                              viewportFraction: 0.4,
+                              height: 300.0,
+                              viewportFraction: 0.2,
                               initialPage: 0,
                               enableInfiniteScroll: true,
                               reverse: false,
@@ -113,7 +113,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                                   const Duration(milliseconds: 1000),
                               autoPlayCurve: Curves.fastOutSlowIn,
                               enlargeCenterPage: true,
-                              enlargeFactor: 0.4,
+                              enlargeFactor: 0.2,
                             ),
                             items: whyZahSoftMobile.map((i) {
                               return Builder(
