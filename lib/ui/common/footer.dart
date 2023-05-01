@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:zah_website/ui/common/app_icons.dart';
 // import 'package:url_launcher/url_launcher.dart';
 import 'package:zah_website/ui/common/ui_helpers.dart';
 import 'package:zah_website/ui/views/contactUs/pages/contactus_viewmodel.dart';
@@ -82,7 +83,7 @@ class Footer extends StatelessWidget {
                 const Text("شهادة توثيق التجارة الالكترونية   11166",
                     style: TextStyle(color: Colors.white)),
                 Image.asset(
-                  "qrCode.png",
+                  "assets/qrCode.png",
                   height: 120,
                   width: 120,
                 ),
@@ -95,7 +96,7 @@ class Footer extends StatelessWidget {
                         HomeViewModel.sendEmailMessage(body: "");
                       },
                       icon: SvgPicture.asset(
-                        "email.svg",
+                        iconEmail,
                         height: 18,
                       ),
                       label: const Text("CC@ZAHASOFT.COM",
@@ -103,7 +104,7 @@ class Footer extends StatelessWidget {
                   TextButton.icon(
                       onPressed: null,
                       icon: SvgPicture.asset(
-                        "phone-call.svg",
+                        iconCall,
                         height: 18,
                       ),
                       label: const Text("567830001 966+",
@@ -111,7 +112,7 @@ class Footer extends StatelessWidget {
                   TextButton.icon(
                       onPressed: () {},
                       icon: SvgPicture.asset(
-                        "location.svg",
+                        iconLocation,
                         height: 18,
                       ),
                       label: const Text("الرياض",
@@ -121,7 +122,7 @@ class Footer extends StatelessWidget {
                         ContactUsModel.openWhatsapp();
                       },
                       icon: SvgPicture.asset(
-                        "whatsapp.svg",
+                        iconWhatsapp,
                         height: 18,
                       ),
                       label: const Text("تواصل معنا",
@@ -132,116 +133,103 @@ class Footer extends StatelessWidget {
           ),
         ),
         mobile: (_) => Container(
-          width: double.infinity,
+          width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.all(20),
           decoration:
               const BoxDecoration(color: Color.fromARGB(255, 87, 12, 185)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            // mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Column(
-                // crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  InkWell(
-                    onTap: () => Navigator.pushNamed(context, '/'),
-                    child: const Text(
-                      "الرئيسية",
-                      style: TextStyle(color: Colors.white),
-                    ),
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                InkWell(
+                  onTap: () => Navigator.pushNamed(context, '/'),
+                  child: const Text(
+                    "الرئيسية",
+                    style: TextStyle(color: Colors.white),
                   ),
-                  InkWell(
-                      onTap: () => Scrollable.ensureVisible(
-                          duration: const Duration(seconds: 1),
-                          serviceDataKey!.currentContext!),
-                      child: const Text("الخدمات",
-                          style: TextStyle(color: Colors.white))),
-                  InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/about-us'),
-                      child: const Text("من نحن",
-                          style: TextStyle(color: Colors.white))),
-                  InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/why'),
-                      child: const Text("لماذا نحن",
-                          style: TextStyle(color: Colors.white))),
-                  InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/contact-us'),
-                      child: const Text("تواصل معنا",
-                          style: TextStyle(color: Colors.white))),
-                ],
-              ),
-              verticalSpaceLarge,
-              Column(
-                  // crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () => Scrollable.ensureVisible(
-                          duration: const Duration(seconds: 1),
-                          orderDataKey!.currentContext!),
-                      child: const Text(
-                        "اطلب خدمتنا",
-                        style: TextStyle(color: Colors.white),
-                      ),
+                ),
+                InkWell(
+                    onTap: () => Scrollable.ensureVisible(
+                        duration: const Duration(seconds: 1),
+                        serviceDataKey!.currentContext!),
+                    child: const Text("الخدمات",
+                        style: TextStyle(color: Colors.white))),
+                InkWell(
+                    onTap: () => Navigator.pushNamed(context, '/about-us'),
+                    child: const Text("من نحن",
+                        style: TextStyle(color: Colors.white))),
+                InkWell(
+                    onTap: () => Navigator.pushNamed(context, '/why'),
+                    child: const Text("لماذا نحن",
+                        style: TextStyle(color: Colors.white))),
+                InkWell(
+                    onTap: () => Navigator.pushNamed(context, '/contact-us'),
+                    child: const Text("تواصل معنا",
+                        style: TextStyle(color: Colors.white))),
+                verticalSpaceLarge,
+                InkWell(
+                  onTap: () => Scrollable.ensureVisible(
+                      duration: const Duration(seconds: 1),
+                      orderDataKey!.currentContext!),
+                  child: const Text(
+                    "اطلب خدمتنا",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                const Text("سياستنا", style: TextStyle(color: Colors.white)),
+                const Text("السجل التجاري 1010692755",
+                    style: TextStyle(color: Colors.white)),
+                const Text("الرقم الضريبي 310646681700003",
+                    style: TextStyle(color: Colors.white)),
+                const Text("البنك الأهلي السعودي:\n SA2410000001400006128800",
+                    style: TextStyle(color: Colors.white)),
+                const Text("شهادة توثيق التجارة الالكترونية   11166",
+                    style: TextStyle(color: Colors.white)),
+                Image.asset(
+                  "assets/qrCode.png",
+                  height: 120,
+                  width: 120,
+                ),
+                verticalSpaceLarge,
+                TextButton.icon(
+                    onPressed: () {
+                      HomeViewModel.sendEmailMessage(body: "");
+                    },
+                    icon: SvgPicture.asset(
+                      iconEmail,
+                      height: 18,
                     ),
-                    const Text("سياستنا",
-                        style: TextStyle(color: Colors.white)),
-                    const Text("السجل التجاري 1010692755",
-                        style: TextStyle(color: Colors.white)),
-                    const Text("الرقم الضريبي 310646681700003",
-                        style: TextStyle(color: Colors.white)),
-                    const Text("البنك الأهلي السعودي: SA2410000001400006128800",
-                        style: TextStyle(color: Colors.white)),
-                    const Text("شهادة توثيق التجارة الالكترونية   11166",
-                        style: TextStyle(color: Colors.white)),
-                    Image.asset(
-                      "qrCode.png",
-                      height: 120,
-                      width: 120,
+                    label: const Text("CC@ZAHASOFT.COM",
+                        style: TextStyle(color: Colors.white))),
+                TextButton.icon(
+                    onPressed: null,
+                    icon: SvgPicture.asset(
+                      iconCall,
+                      height: 18,
                     ),
-                  ]),
-              verticalSpaceLarge,
-              Column(
-                // crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  TextButton.icon(
-                      onPressed: () {
-                        HomeViewModel.sendEmailMessage(body: "");
-                      },
-                      icon: SvgPicture.asset(
-                        "email.svg",
-                        height: 18,
-                      ),
-                      label: const Text("CC@ZAHASOFT.COM",
-                          style: TextStyle(color: Colors.white))),
-                  TextButton.icon(
-                      onPressed: null,
-                      icon: SvgPicture.asset(
-                        "phone-call.svg",
-                        height: 18,
-                      ),
-                      label: const Text("567830001 966+",
-                          style: TextStyle(color: Colors.white))),
-                  TextButton.icon(
-                      onPressed: () {},
-                      icon: SvgPicture.asset(
-                        "location.svg",
-                        height: 18,
-                      ),
-                      label: const Text("الرياض",
-                          style: TextStyle(color: Colors.white))),
-                  TextButton.icon(
-                      onPressed: () {
-                        ContactUsModel.openWhatsapp();
-                      },
-                      icon: SvgPicture.asset(
-                        "whatsapp.svg",
-                        height: 18,
-                      ),
-                      label: const Text("تواصل معنا",
-                          style: TextStyle(color: Colors.white))),
-                ],
-              ),
-            ],
+                    label: const Text("567830001 966+",
+                        style: TextStyle(color: Colors.white))),
+                TextButton.icon(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      iconLocation,
+                      height: 18,
+                    ),
+                    label: const Text("الرياض",
+                        style: TextStyle(color: Colors.white))),
+                TextButton.icon(
+                    onPressed: () {
+                      ContactUsModel.openWhatsapp();
+                    },
+                    icon: SvgPicture.asset(
+                      iconWhatsapp,
+                      height: 18,
+                    ),
+                    label: const Text("تواصل معنا",
+                        style: TextStyle(color: Colors.white))),
+              ],
+            ),
           ),
         ),
       ),

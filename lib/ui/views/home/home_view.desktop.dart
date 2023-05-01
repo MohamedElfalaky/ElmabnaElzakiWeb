@@ -71,7 +71,8 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                                   ],
                                 ),
                               ),
-                              Expanded(child: Image.asset("helloSah.png"))
+                              Expanded(
+                                  child: Image.asset("assets/helloSah.png"))
                             ],
                           ),
                         ),
@@ -204,7 +205,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Lottie.asset("web.json", height: 100),
+                                  Lottie.asset("assets/web.json", height: 100),
                                   Text('تأسيس المواقع التعريفية',
                                       style: ktsLargeText.copyWith(
                                           color: kcPrimaryColor,
@@ -241,7 +242,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Lottie.asset("web2.json", height: 100),
+                                  Lottie.asset("assets/web2.json", height: 100),
                                   Text("تصميم وبرمجة تطبيقات الويب",
                                       style: ktsLargeText.copyWith(
                                           color: kcPrimaryColor,
@@ -277,7 +278,8 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Lottie.asset("mobileapp.json", height: 100),
+                                  Lottie.asset("assets/mobileapp.json",
+                                      height: 100),
                                   Text('تصميم وبرمجة تطبيقات الجوال',
                                       style: ktsLargeText.copyWith(
                                           color: kcPrimaryColor,
@@ -316,8 +318,8 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
                                         vertical: 25),
-                                    child:
-                                        Lottie.asset("eree.json", height: 50),
+                                    child: Lottie.asset("assets/eree.json",
+                                        height: 50),
                                   ),
                                   Text("تطوير نظم إدارة موارد المؤسسة ERP",
                                       style: ktsLargeText.copyWith(
@@ -375,7 +377,7 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                             children: [
                               Expanded(
                                   child: ClipRRect(
-                                child: Image.asset("contactUs.png"),
+                                child: Image.asset("assets/contactUs.png"),
                                 borderRadius: BorderRadius.circular(40),
                               )),
                               horizontalSpaceMedium,
@@ -490,7 +492,8 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
                                             onPressed: () {
                                               if (_formKey.currentState!
                                                   .validate()) {
-                                                HomeViewModel.sendEmailMessage(body: '''
+                                                HomeViewModel.sendEmailMessage(
+                                                    body: '''
                                                 ZahWebSite with Flutter 
                                                 Form
                                                 Clint Name : ${clintName.text.toString()}
