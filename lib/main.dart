@@ -8,9 +8,11 @@ import 'package:zah_website/app/app.router.dart';
 import 'package:zah_website/ui/common/app_colors.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:zah_website/ui/views/OurPolicy/ourPolicy_view.dart';
 import 'package:zah_website/ui/views/aboutus/pages/aboutus_view.dart';
 import 'package:zah_website/ui/views/contactUs/pages/contactus_view.dart';
 import 'package:zah_website/ui/views/home/home_view.dart';
+import 'package:zah_website/ui/views/services/services_view.dart';
 import 'package:zah_website/ui/views/why/pages/why_view.dart';
 
 void main() {
@@ -42,9 +44,11 @@ class MyApp extends StatelessWidget {
               initialRoute: '/',
               routes: {
                 '/': (context) => HomeView(),
+                '/our-services': (context) => ServicesView(),
                 '/about-us': (context) => AboutUsView(),
                 '/why': (context) => WhyView(),
                 '/contact-us': (context) => ContactUsView(),
+                '/our-policy': (context) => OurPolicyView(),
               },
               // routerDelegate: stackedRouter.delegate(),
               // routeInformationParser: stackedRouter.defaultRouteParser(),

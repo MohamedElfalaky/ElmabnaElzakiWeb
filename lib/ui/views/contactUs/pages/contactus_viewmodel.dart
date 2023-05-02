@@ -24,7 +24,7 @@ class ContactUsModel extends BaseViewModel {
       }
     },
     {
-      "title": "من الاحد الي الخميس من الساعه 9 صباحا - 6 مساء",
+      "title": "من الاحد الى الخميس من الساعه 9 صباحا - 6 مساء",
       "icon": iconCalendar,
       "onTap": () {}
     },
@@ -41,10 +41,10 @@ class ContactUsModel extends BaseViewModel {
   ];
 
   static void openWhatsapp() async {
-    Uri _url = Uri.parse(
-        "https://api.whatsapp.com/send/?phone=+966567830001&text&type=phone_number&app_absent=0");
-    if (!await launch(
-        "https://api.whatsapp.com/send/?phone=+966567830001&text&type=phone_number&app_absent=0")) {
+    Uri _url = Uri.parse("https://wa.me/+966567830001"
+        // "https://api.whatsapp.com/send/?phone=+966567830001&text&type=phone_number&app_absent=0"
+        );
+    if (!await launchUrl(_url)) {
       throw 'Could not launch $_url';
     }
   }

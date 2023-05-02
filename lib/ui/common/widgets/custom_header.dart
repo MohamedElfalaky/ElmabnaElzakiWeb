@@ -16,7 +16,7 @@ class CustomHeader extends StatelessWidget {
         child: InkWell(
           onTap: title != currentPage ? onTap : null,
           child: Text(
-            title == "الرئيسية" ? "الرئيسية    خدماتنا" : title,
+            title,
             style: ktsTitleText.copyWith(
                 color: currentPage == title ? kcPrimaryColor : kcSecondaryColor,
                 fontSize: 15),
@@ -32,8 +32,7 @@ class CustomHeader extends StatelessWidget {
         decoration: BoxDecoration(color: Colors.white),
         child: Directionality(
           textDirection: TextDirection.rtl,
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          child: Row(children: [
             Row(
               children: [
                 InkWell(
@@ -63,15 +62,16 @@ class CustomHeader extends StatelessWidget {
                 ),
               ],
             ),
+            Spacer(),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _customText("الرئيسية", () {
                   Navigator.pushNamed(context, '/');
                 }),
-                // _customText("خدماتنا", () {
-                //   Navigator.pushNamed(context, '/');
-                // }),
+                _customText("خدماتنا", () {
+                  Navigator.pushNamed(context, '/our-services');
+                }),
                 _customText("من نحن", () {
                   Navigator.pushNamed(context, '/about-us');
                 }),
@@ -82,7 +82,8 @@ class CustomHeader extends StatelessWidget {
                   Navigator.pushNamed(context, '/contact-us');
                 }),
               ],
-            )
+            ),
+            Spacer()
           ]),
         ),
       ),
