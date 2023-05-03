@@ -82,7 +82,7 @@ class ServicesMobile extends ViewModelWidget<ServicesModel> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Lottie.asset("assets/web.json", height: 100),
+                                  // Lottie.asset("assets/web.json", height: 100),
                                   Text('تأسيس المواقع التعريفية',
                                       style: ktsLargeText.copyWith(
                                           color: kcPrimaryColor,
@@ -119,7 +119,7 @@ class ServicesMobile extends ViewModelWidget<ServicesModel> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Lottie.asset("assets/web2.json", height: 100),
+                                  // Lottie.asset("assets/web2.json", height: 100),
                                   Text("تصميم وبرمجة تطبيقات الويب",
                                       style: ktsLargeText.copyWith(
                                           color: kcPrimaryColor,
@@ -155,8 +155,8 @@ class ServicesMobile extends ViewModelWidget<ServicesModel> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Lottie.asset("assets/mobileapp.json",
-                                      height: 100),
+                                  // Lottie.asset("assets/mobileapp.json",
+                                  //     height: 100),
                                   Text('تصميم وبرمجة تطبيقات الجوال',
                                       style: ktsLargeText.copyWith(
                                           color: kcPrimaryColor,
@@ -192,12 +192,12 @@ class ServicesMobile extends ViewModelWidget<ServicesModel> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 25),
-                                    child: Lottie.asset("assets/eree.json",
-                                        height: 50),
-                                  ),
+                                  // Padding(
+                                  //   padding: const EdgeInsets.symmetric(
+                                  //       vertical: 25),
+                                  //   child: Lottie.asset("assets/eree.json",
+                                  //       height: 50),
+                                  // ),
                                   Text("تطوير نظم إدارة موارد المؤسسة ERP",
                                       style: ktsLargeText.copyWith(
                                           color: kcPrimaryColor,
