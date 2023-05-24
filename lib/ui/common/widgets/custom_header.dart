@@ -12,14 +12,14 @@ class CustomHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     _customText(String title, void Function()? onTap) {
       return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 14),
         child: InkWell(
           onTap: title != currentPage ? onTap : null,
           child: Text(
             title,
             style: ktsTitleText.copyWith(
-                color: currentPage == title ? kcPrimaryColor : kcSecondaryColor,
-                fontSize: 15),
+                color: currentPage == title ? kcPrimaryColor : Colors.black,
+                fontSize: 22),
           ),
         ),
       );
@@ -27,7 +27,7 @@ class CustomHeader extends StatelessWidget {
 
     return ScreenTypeLayout.builder(
       desktop: (_) => Container(
-        height: 70,
+        height: 90,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(color: Colors.white),
         child: Directionality(
@@ -39,27 +39,14 @@ class CustomHeader extends StatelessWidget {
                     onTap: () => currentPage == "الرئيسية"
                         ? null
                         : Navigator.pushNamed(context, '/'),
-                    child:
-                        Image.asset("assets/zahlogo.jpeg", fit: BoxFit.fill)),
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                          text: 'زاهـ',
-                          style: ktsRegularText.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: kcPrimaryColor)),
-                      TextSpan(
-                          text: ' سوفت لتقنية المعلومات',
-                          style: ktsRegularText.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: kcSecondaryColor)
-                          //  ktsTitleText.copyWith(
-                          //     fontSize: 12, color: kcSecondaryColor),
-                          ),
-                    ],
-                  ),
-                ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        "assets/mainIcon.png",
+                        height: 100,
+                        width: 100,
+                      ),
+                    )),
               ],
             ),
             Spacer(),

@@ -11,7 +11,7 @@ class HomeViewModel extends BaseViewModel {
   final _bottomSheetService = locator<BottomSheetService>();
 
   static Future<void> sendEmailMessage({String? body}) async {
-    const String email = "cc@zahsoft.com";
+    const String email = "contact@smartofbuilding.com";
     // ignore: deprecated_member_use
     if (await canLaunch('mailto:$email?subject=Hello  &body=$body')) {
       // ignore: deprecated_member_use

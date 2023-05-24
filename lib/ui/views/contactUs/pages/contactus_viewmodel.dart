@@ -41,7 +41,7 @@ class ContactUsModel extends BaseViewModel {
   ];
 
   static void openWhatsapp() async {
-    Uri _url = Uri.parse("https://wa.me/+966567830001"
+    Uri _url = Uri.parse("https://wa.me/00249912389996"
         // "https://api.whatsapp.com/send/?phone=+966567830001&text&type=phone_number&app_absent=0"
         );
     if (!await launchUrl(_url)) {

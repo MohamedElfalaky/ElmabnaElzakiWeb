@@ -28,6 +28,23 @@ class Footer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+              SizedBox(
+                width: 300,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      "assets/mainIcon.png",
+                      height: 100,
+                      width: 100,
+                    ),
+                    verticalSpaceSmall,
+                    Text(
+                        "نقدم مجموعة من الحلول للشركات والمؤسسات الحكومية والأفراد في مجال العقارات داخل وخارج السودان",
+                        style: TextStyle(color: Colors.white))
+                  ],
+                ),
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -54,8 +71,8 @@ class Footer extends StatelessWidget {
                       child: const Text("من نحن",
                           style: TextStyle(color: Colors.white))),
                   InkWell(
-                      onTap: () => Navigator.pushNamed(context, '/why'),
-                      child: const Text("لماذا نحن",
+                      onTap: () => Navigator.pushNamed(context, "/our-policy"),
+                      child: const Text("سياستنا",
                           style: TextStyle(color: Colors.white))),
                   InkWell(
                       onTap: () => Navigator.pushNamed(context, '/contact-us'),
@@ -63,52 +80,53 @@ class Footer extends StatelessWidget {
                           style: TextStyle(color: Colors.white))),
                 ],
               ),
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                InkWell(
-                  onTap: () {
-                    ModalRoute.of(context)!.settings.name != "/"
-                        ? Navigator.pushNamed(context, '/', arguments: true)
-                        : Scrollable.ensureVisible(
-                            duration: Duration(seconds: 1),
-                            orderDataKey!.currentContext!);
-                  },
-                  child: const Text(
-                    "اطلب خدمتنا",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                InkWell(
-                    onTap: () => Navigator.pushNamed(context, "/our-policy"),
-                    child: const Text("سياستنا",
-                        style: TextStyle(color: Colors.white))),
-                InkWell(
-                  onTap: () {
-                    launch(
-                        "https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=1010692755");
-                    //https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=0000011166
-                  },
-                  child: const Text("السجل التجاري 1010692755",
-                      style: TextStyle(color: Colors.white)),
-                ),
-                const Text("الرقم الضريبي 310646681700003",
-                    style: TextStyle(color: Colors.white)),
-                const Text("البنك الأهلي السعودي: SA2410000001400006128800",
-                    style: TextStyle(color: Colors.white)),
-                const Text("شهادة توثيق التجارة الالكترونية   11166",
-                    style: TextStyle(color: Colors.white)),
-                InkWell(
-                  onTap: () {
-                    launch(
-                        "https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=1010692755");
-                    //https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=0000011166
-                  },
-                  child: Image.asset(
-                    "assets/qrCode.png",
-                    height: 120,
-                    width: 120,
-                  ),
-                ),
-              ]),
+              // Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              //   InkWell(
+              //     onTap: () {
+              //       ModalRoute.of(context)!.settings.name != "/"
+              //           ? Navigator.pushNamed(context, '/', arguments: true)
+              //           : Scrollable.ensureVisible(
+              //               duration: Duration(seconds: 1),
+              //               orderDataKey!.currentContext!);
+              //     },
+              //     child: const Text(
+              //       "اطلب خدمتنا",
+              //       style: TextStyle(color: Colors.white),
+              //     ),
+              //   ),
+              //   InkWell(
+              //       onTap: () => Navigator.pushNamed(context, "/our-policy"),
+              //       child: const Text("سياستنا",
+              //           style: TextStyle(color: Colors.white))),
+              //   InkWell(
+              //     onTap: () {
+              //       launch(
+              //           "https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=1010692755");
+              //       //https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=0000011166
+              //     },
+              //     child: const Text("السجل التجاري 1010692755",
+              //         style: TextStyle(color: Colors.white)),
+              //   ),
+              //   const Text("الرقم الضريبي 310646681700003",
+              //       style: TextStyle(color: Colors.white)),
+              //   const Text("البنك الأهلي السعودي: SA2410000001400006128800",
+              //       style: TextStyle(color: Colors.white)),
+              //   const Text("شهادة توثيق التجارة الالكترونية   11166",
+              //       style: TextStyle(color: Colors.white)),
+              //   InkWell(
+              //     onTap: () {
+              //       launch(
+              //           "https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=1010692755");
+              //       //https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=0000011166
+              //     },
+              //     child: Image.asset(
+              //       "assets/qrCode.png",
+              //       height: 120,
+              //       width: 120,
+              //     ),
+              //   ),
+              // ]),
+
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -120,7 +138,7 @@ class Footer extends StatelessWidget {
                         iconEmail,
                         height: 18,
                       ),
-                      label: const Text("CC@ZAHASOFT.COM",
+                      label: const Text("contact@smartofbuilding.com",
                           style: TextStyle(color: Colors.white))),
                   TextButton.icon(
                       onPressed: null,
@@ -128,7 +146,7 @@ class Footer extends StatelessWidget {
                         iconCall,
                         height: 18,
                       ),
-                      label: const Text("567830001 966+",
+                      label: const Text("00249912389996",
                           style: TextStyle(color: Colors.white))),
                   TextButton.icon(
                       onPressed: () {},
@@ -156,13 +174,29 @@ class Footer extends StatelessWidget {
         mobile: (_) => Container(
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.all(20),
-          decoration:
-              const BoxDecoration(color: Color.fromARGB(255, 87, 12, 185)),
+          decoration: const BoxDecoration(color: kcSecondaryColor),
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               // mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                SizedBox(
+                  width: 300,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        "assets/mainIcon.png",
+                        height: 100,
+                        width: 100,
+                      ),
+                      verticalSpaceSmall,
+                      Text(
+                          "نقدم مجموعة من الحلول للشركات والمؤسسات الحكومية والأفراد في مجال العقارات داخل وخارج السودان",
+                          style: TextStyle(color: Colors.white))
+                    ],
+                  ),
+                ),
                 InkWell(
                   onTap: () {
                     if (ModalRoute.of(context)!.settings.name != "/")
@@ -173,6 +207,7 @@ class Footer extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
+                verticalSpaceLarge,
                 InkWell(
                     onTap: () {
                       if (ModalRoute.of(context)!.settings.name !=
@@ -186,58 +221,13 @@ class Footer extends StatelessWidget {
                     child: const Text("من نحن",
                         style: TextStyle(color: Colors.white))),
                 InkWell(
-                    onTap: () => Navigator.pushNamed(context, '/why'),
-                    child: const Text("لماذا نحن",
+                    onTap: () => Navigator.pushNamed(context, "/our-policy"),
+                    child: const Text("سياستنا",
                         style: TextStyle(color: Colors.white))),
                 InkWell(
                     onTap: () => Navigator.pushNamed(context, '/contact-us'),
                     child: const Text("تواصل معنا",
                         style: TextStyle(color: Colors.white))),
-                verticalSpaceLarge,
-                InkWell(
-                  onTap: () {
-                    ModalRoute.of(context)!.settings.name != "/"
-                        ? Navigator.pushNamed(context, '/', arguments: true)
-                        : Scrollable.ensureVisible(
-                            duration: Duration(seconds: 1),
-                            orderDataKey!.currentContext!);
-                  },
-                  child: const Text(
-                    "اطلب خدمتنا",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                InkWell(
-                    onTap: () => Navigator.pushNamed(context, "/our-policy"),
-                    child: const Text("سياستنا",
-                        style: TextStyle(color: Colors.white))),
-                InkWell(
-                  onTap: () {
-                    launch(
-                        "https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=1010692755");
-                    //https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=0000011166
-                  },
-                  child: const Text("السجل التجاري 1010692755",
-                      style: TextStyle(color: Colors.white)),
-                ),
-                const Text("الرقم الضريبي 310646681700003",
-                    style: TextStyle(color: Colors.white)),
-                const Text("البنك الأهلي السعودي:\n SA2410000001400006128800",
-                    style: TextStyle(color: Colors.white)),
-                const Text("شهادة توثيق التجارة الالكترونية   11166",
-                    style: TextStyle(color: Colors.white)),
-                InkWell(
-                  onTap: () {
-                    launch(
-                        "https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=1010692755");
-                    //https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=0000011166
-                  },
-                  child: Image.asset(
-                    "assets/qrCode.png",
-                    height: 120,
-                    width: 120,
-                  ),
-                ),
                 verticalSpaceLarge,
                 TextButton.icon(
                     onPressed: () {
@@ -247,7 +237,7 @@ class Footer extends StatelessWidget {
                       iconEmail,
                       height: 18,
                     ),
-                    label: const Text("CC@ZAHASOFT.COM",
+                    label: const Text("contact@smartofbuilding.com",
                         style: TextStyle(color: Colors.white))),
                 TextButton.icon(
                     onPressed: null,
@@ -255,15 +245,7 @@ class Footer extends StatelessWidget {
                       iconCall,
                       height: 18,
                     ),
-                    label: const Text("567830001 966+",
-                        style: TextStyle(color: Colors.white))),
-                TextButton.icon(
-                    onPressed: () {},
-                    icon: SvgPicture.asset(
-                      iconLocation,
-                      height: 18,
-                    ),
-                    label: const Text("الرياض",
+                    label: const Text("00249912389996",
                         style: TextStyle(color: Colors.white))),
                 TextButton.icon(
                     onPressed: () {

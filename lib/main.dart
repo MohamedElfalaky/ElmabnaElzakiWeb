@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         preferDesktop: true,
         builder: (_) => MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'ZahSoft Web',
+              title: 'المبنى الذكي',
               theme: Theme.of(context).copyWith(
                 primaryColor: kcBackgroundColor,
                 focusColor: kcPrimaryColor,
