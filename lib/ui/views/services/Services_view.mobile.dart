@@ -13,240 +13,146 @@ import 'package:zah_website/ui/views/services/services_viewmodel.dart';
 
 class ServicesMobile extends ViewModelWidget<ServicesModel> {
   ServicesMobile({super.key});
-  final CarouselController _controller = CarouselController();
-  final _formKey = GlobalKey<FormState>();
-  String? _selectedItem;
-  final ScrollController _scrollController = ScrollController();
 
-  final List<String> _items = ['فرد', 'مؤسسة', 'شركة', 'شركة ذات شخص واحد'];
-  final dataKey = GlobalKey();
-  final servicesDataKey = GlobalKey();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  TextEditingController clintName = TextEditingController();
-  TextEditingController clintType = TextEditingController();
-  TextEditingController phone = TextEditingController();
-  TextEditingController code = TextEditingController();
-  TextEditingController address = TextEditingController();
-  TextEditingController details = TextEditingController();
+
   @override
   Widget build(BuildContext context, ServicesModel viewModel) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       key: _scaffoldKey,
-      drawer: CustomDrawer(scaffoldKey: _scaffoldKey, currentPage: "خدماتنا"),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: kcPrimaryColor,
-        onPressed: () {
-          _scrollController.animateTo(0,
-              duration: Duration(milliseconds: 1000), curve: Curves.easeInOut);
-        },
-        child: Icon(
-          Icons.keyboard_arrow_up,
-          size: 30,
-        ),
+      drawer: CustomDrawer(
+        currentPage: "خدماتنا",
+        scaffoldKey: _scaffoldKey,
       ),
       body: Directionality(
         textDirection: TextDirection.rtl,
-        child: SafeArea(
-          child: Center(
-            child: Column(
-              children: [
-                CustomHeader(
-                  currentPage: "خدماتنا",
-                  scaffoldKey: _scaffoldKey,
-                ),
-                Expanded(
+        child: Center(
+          child: Column(
+            children: [
+              CustomHeader(
+                currentPage: "خدماتنا",
+                scaffoldKey: _scaffoldKey,
+              ),
+              Expanded(
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width,
                   child: SingleChildScrollView(
-                    controller: _scrollController,
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        verticalSpaceLarge,
-                        Text(
-                          'خدماتنا',
-                          style: ktsTitleText.copyWith(
-                              fontSize: 30, color: kcSecondaryColor),
-                          key: servicesDataKey,
-                        ),
-                        verticalSpaceSmall,
-                        //
-                        // our services
-                        //
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 50, vertical: 20),
+                        Container(
+                          width: double.infinity,
+                          height: 500,
+                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          decoration: const BoxDecoration(
+                              color: Colors.black,
+                              image: DecorationImage(
+                                  opacity: 0.5,
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(
+                                    "assets/khada.jpg",
+                                  ))),
                           child: Column(
-                            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  // Lottie.asset("assets/web.json", height: 100),
-                                  Text('تأسيس المواقع التعريفية',
-                                      style: ktsLargeText.copyWith(
-                                          color: kcPrimaryColor,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold)),
-                                  verticalSpaceMedium,
-                                  oneService("تصاميم احترافية"),
-                                  oneService("تحسين تجربة المستخدم"),
-                                  oneService("تصميم الهوية البصرية"),
-                                  oneService("كتابة محتوى ابداعي"),
-                                  oneService("دعم العربية والإنجليزية"),
-                                  oneService(
-                                      "اختيار مزود خدمة حسب رغبة العميل"),
-                                  verticalSpaceLarge,
-                                  SizedBox(
-                                    height: 40,
-                                    width: 120,
-                                    child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: kcSecondaryColor,
-                                        ),
-                                        onPressed: () {
-                                          Navigator.pushNamed(context, "/",
-                                              arguments: true);
-                                        },
-                                        child: const Text(
-                                          "اطلب الخدمة",
-                                          style: TextStyle(color: Colors.white),
-                                        )),
-                                  )
-                                ],
-                              ),
-                              verticalSpaceLarge,
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  // Lottie.asset("assets/web2.json", height: 100),
-                                  Text("تصميم وبرمجة تطبيقات الويب",
-                                      style: ktsLargeText.copyWith(
-                                          color: kcPrimaryColor,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold)),
-                                  verticalSpaceMedium,
-                                  oneService("تحليل المنافسين والجمهور"),
-                                  oneService("تحليل مميزات التطبيق"),
-                                  oneService("تصميم الهوية البصرية"),
-                                  oneService("دعم لمختلف الأجهزة"),
-                                  oneService("تصميم قاعدة البيانات"),
-                                  oneService("تحسين واجهة المستخدم"),
-                                  verticalSpaceLarge,
-                                  SizedBox(
-                                    height: 40,
-                                    width: 120,
-                                    child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: kcSecondaryColor,
-                                        ),
-                                        onPressed: () {
-                                          Navigator.pushNamed(context, "/",
-                                              arguments: true);
-                                        },
-                                        child: const Text(
-                                          "اطلب الخدمة",
-                                          style: TextStyle(color: Colors.white),
-                                        )),
-                                  )
-                                ],
-                              ),
-                              verticalSpaceLarge,
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  // Lottie.asset("assets/mobileapp.json",
-                                  //     height: 100),
-                                  Text('تصميم وبرمجة تطبيقات الجوال',
-                                      style: ktsLargeText.copyWith(
-                                          color: kcPrimaryColor,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold)),
-                                  verticalSpaceMedium,
-                                  oneService('تحليل مميزات التطبيق'),
-                                  oneService('سلاسة الاستخدام'),
-                                  oneService("تصميم قاعدة البيانات"),
-                                  oneService("تصميم بسيط واحترافي"),
-                                  oneService("وقت تحميل أقل وسرعة جيدة"),
-                                  oneService("مميزات تزيد التفاعل"),
-                                  verticalSpaceLarge,
-                                  SizedBox(
-                                    height: 40,
-                                    width: 120,
-                                    child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: kcSecondaryColor,
-                                        ),
-                                        onPressed: () {
-                                          Navigator.pushNamed(context, "/",
-                                              arguments: true);
-                                        },
-                                        child: const Text(
-                                          "اطلب الخدمة",
-                                          style: TextStyle(color: Colors.white),
-                                        )),
-                                  )
-                                ],
-                              ),
-                              verticalSpaceLarge,
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  // Padding(
-                                  //   padding: const EdgeInsets.symmetric(
-                                  //       vertical: 25),
-                                  //   child: Lottie.asset("assets/eree.json",
-                                  //       height: 50),
-                                  // ),
-                                  Text("تطوير نظم إدارة موارد المؤسسة ERP",
-                                      style: ktsLargeText.copyWith(
-                                          color: kcPrimaryColor,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold)),
-                                  verticalSpaceMedium,
-                                  oneService("نظام حسب الاحتياجات"),
-                                  oneService("واجهة مستخدم سهلة"),
-                                  oneService("رفع مستوى الأمان"),
-                                  oneService("أتمتة المهام الروتينية"),
-                                  oneService("زيادة الإنتاجية والأداء"),
-                                  oneService("دعم فني احترافي"),
-                                  verticalSpaceLarge,
-                                  SizedBox(
-                                    height: 40,
-                                    width: 120,
-                                    child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: kcSecondaryColor,
-                                        ),
-                                        onPressed: () {
-                                          Navigator.pushNamed(context, "/",
-                                              arguments: true);
-                                        },
-                                        child: const Text(
-                                          "اطلب الخدمة",
-                                          style: TextStyle(color: Colors.white),
-                                        )),
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "خدماتنا",
+                                  style: ktsTitleText.copyWith(
+                                      color: kcWhite, fontSize: 50),
+                                ),
+                              ]),
                         ),
 
-                        ///
-                        ///Start your project
-                        ///
-                        verticalSpaceMedium,
-                        Footer(
-                          orderDataKey: dataKey,
-                          serviceDataKey: servicesDataKey,
-                        )
+                        //
+                        // our services
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: size.width / 7, vertical: 40),
+                          width: double.infinity,
+                          // height: 550,
+                          decoration: const BoxDecoration(
+                            color: kcWhite,
+                          ),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Center(
+                                  child: Text(
+                                    "خدماتنا",
+                                    style: ktsLargeText
+                                        .copyWith(
+                                          fontWeight: FontWeight.bold,
+                                          color: kcPrimaryColor,
+                                        )
+                                        .copyWith(fontSize: 30),
+                                  ),
+                                ),
+                                verticalSpaceSmall,
+                                GridView.builder(
+                                    itemCount:
+                                        ServicesModel.ourServiceList.length,
+                                    physics: NeverScrollableScrollPhysics(),
+                                    shrinkWrap: true,
+                                    gridDelegate:
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
+                                            crossAxisCount: 1,
+                                            childAspectRatio: 1,
+                                            mainAxisExtent: 250,
+                                            crossAxisSpacing: 5,
+                                            mainAxisSpacing: 20),
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Image.asset(
+                                                ServicesModel
+                                                        .ourServiceList[index]
+                                                    ["icon"]!,
+                                                height: 100),
+                                            verticalSpaceSmall,
+                                            Text(
+                                                ServicesModel
+                                                        .ourServiceList[index]
+                                                    ["title"]!,
+                                                style: ktsLargeText.copyWith(
+                                                    color: kcPrimaryColor,
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                            Text(
+                                                ServicesModel
+                                                        .ourServiceList[index]
+                                                    ["body"]!,
+                                                style: ktsLargeText.copyWith(
+                                                  color: kcBlack,
+                                                  fontSize: 14,
+                                                )),
+                                          ],
+                                        ),
+                                      );
+                                      // WhyItem(
+                                      //   title: WhyModel.whyList[index]["title"]!,
+                                      //   body: WhyModel.whyList[index]["body"]!,
+                                      //   icon: WhyModel.whyList[index]["icon"]!,
+                                      // );
+                                    }),
+                              ]),
+                        ),
+
+                        Footer()
                       ],
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

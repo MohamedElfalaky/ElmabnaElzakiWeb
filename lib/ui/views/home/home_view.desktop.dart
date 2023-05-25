@@ -19,14 +19,10 @@ class HomeViewDesktop extends ViewModelWidget<HomeViewModel> {
 
   HomeViewDesktop({super.key, this.navToOrder});
 
-  final CarouselController _controller = CarouselController();
   final _formKey = GlobalKey<FormState>();
-  String? _selectedItem;
   final dataKey = GlobalKey();
 
   final ScrollController _scrollController = ScrollController();
-
-  final List<String> _items = ['فرد', 'مؤسسة', 'شركة', 'شركة ذات شخص واحد'];
 
   TextEditingController clintName = TextEditingController();
   TextEditingController clintType = TextEditingController();

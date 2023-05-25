@@ -12,21 +12,20 @@ class ContactUsView extends StackedView<ContactUsModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      ContactUsModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    ContactUsModel viewModel,
+    Widget? child,
+  ) {
     return ScreenTypeLayout.builder(
-      mobile: (_) => const  ContactUsViewMobile(),
-      tablet: (_) => const  ContactUsViewTablet(),
-      desktop: (_) => const ContactUsViewDesktop(),
+      mobile: (_) => ContactUsViewMobile(),
+      tablet: (_) => ContactUsViewDesktop(),
+      desktop: (_) => ContactUsViewDesktop(),
     );
   }
 
-
   @override
   ContactUsModel viewModelBuilder(
-      BuildContext context,
-      ) =>
+    BuildContext context,
+  ) =>
       ContactUsModel();
 }

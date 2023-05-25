@@ -56,9 +56,9 @@ class CustomDrawer extends StatelessWidget {
               },
             ),
             _customItem(
-              title: "لماذا نحن",
+              title: "سياستنا",
               onTap: () {
-                Navigator.pushNamed(context, '/why');
+                Navigator.pushNamed(context, '/our-policy');
                 scaffoldKey!.currentState!.closeDrawer();
               },
             ),
@@ -66,13 +66,6 @@ class CustomDrawer extends StatelessWidget {
               title: "تواصل معنا",
               onTap: () {
                 Navigator.pushNamed(context, '/contact-us');
-                scaffoldKey!.currentState!.closeDrawer();
-              },
-            ),
-            _customItem(
-              title: "سياستنا",
-              onTap: () {
-                Navigator.pushNamed(context, '/our-policy');
                 scaffoldKey!.currentState!.closeDrawer();
               },
             ),

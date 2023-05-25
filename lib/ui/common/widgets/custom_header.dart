@@ -62,8 +62,8 @@ class CustomHeader extends StatelessWidget {
                 _customText("من نحن", () {
                   Navigator.pushNamed(context, '/about-us');
                 }),
-                _customText("لماذا نحن", () {
-                  Navigator.pushNamed(context, '/why');
+                _customText("سياستنا", () {
+                  Navigator.pushNamed(context, '/our-policy');
                 }),
                 _customText("تواصل معنا", () {
                   Navigator.pushNamed(context, '/contact-us');
@@ -88,24 +88,27 @@ class CustomHeader extends StatelessWidget {
                     onTap: () => currentPage == "الرئيسية"
                         ? null
                         : Navigator.pushNamed(context, '/'),
-                    child:
-                        Image.asset("assets/zahlogo.jpeg", fit: BoxFit.fill)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child:
+                          Image.asset("assets/mainIcon.png", fit: BoxFit.fill),
+                    )),
                 RichText(
                   text: TextSpan(
                     children: [
                       TextSpan(
-                          text: 'زاهـ',
+                          text: 'المبنى الذكي',
                           style: ktsRegularText.copyWith(
                               fontWeight: FontWeight.bold,
                               color: kcPrimaryColor)),
-                      TextSpan(
-                          text: ' سوفت لتقنية المعلومات',
-                          style: ktsRegularText.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: kcSecondaryColor)
-                          //  ktsTitleText.copyWith(
-                          //     fontSize: 12, color: kcSecondaryColor),
-                          ),
+                      // TextSpan(
+                      //     text: ' سوفت لتقنية المعلومات',
+                      //     style: ktsRegularText.copyWith(
+                      //         fontWeight: FontWeight.bold,
+                      //         color: kcSecondaryColor)
+                      //     //  ktsTitleText.copyWith(
+                      //     //     fontSize: 12, color: kcSecondaryColor),
+                      //     ),
                     ],
                   ),
                 ),

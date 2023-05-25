@@ -53,95 +53,20 @@ class OurPolicyMobile extends ViewModelWidget<OurPolicyModel> {
                         Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal:
-                                    MediaQuery.of(context).size.width / 8,
+                                    MediaQuery.of(context).size.width / 6,
                                 vertical: 30),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Text(
-                                  "زاهـ سوفت تتبع مجموعة من السياسات التي تنظم العمل وتضمن حقوق جميع الأطراف وذلك حسب البنود المذكورة ادناه",
-                                  style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                verticalSpaceLarge,
-                                const Text(
-                                  "سياسة الخصوصية",
+                                  "نلتزم في شركة المبنى الذكي بسياسة واضحة من أجل كسب رضاء عملائنا واستغلال التقنية لخدمتهم، لأن نكون الرائدين في مجال العقارات في السودان، عبر:",
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                const Text(
-                                  "تلتزم زاهـ سوفت بالحفاظ على السرية التامة لبيانات العميل وفقا لمجموعة من العناصر على النحو التالي:",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
                                 verticalSpaceMedium,
                                 ...taakod.map(
-                                  (e) => RichText(
-                                      text: TextSpan(
-                                          style: ktsLargeText,
-                                          children: [
-                                        const TextSpan(
-                                          text: "o  ",
-                                          style: TextStyle(
-                                              color: kcPrimaryColor,
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        TextSpan(
-                                          text: e,
-                                          style: const TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                          ),
-                                        )
-                                      ])),
-                                ),
-                                verticalSpaceLarge,
-                                const Text(
-                                  "سياسة التعاقد وطلب خدمات , عندما يرغب العميل في الاستفادة من إحدى الخدمات التي نقدمها زاهـ سوفت تتبع السياسات التالية:",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                verticalSpaceMedium,
-                                ...taltazim.map(
-                                  (e) => RichText(
-                                      text: TextSpan(
-                                          style: ktsLargeText,
-                                          children: [
-                                        const TextSpan(
-                                          text: "o  ",
-                                          style: TextStyle(
-                                              color: kcPrimaryColor,
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        TextSpan(
-                                          text: e,
-                                          style: const TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                          ),
-                                        )
-                                      ])),
-                                ),
-                                verticalSpaceLarge,
-                                const Text(
-                                  "سياسة الشكاوى و العناية بالعميل , في حالات الخلاف تتبع زاهـ سوفت السياسات التالية:",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                verticalSpaceMedium,
-                                ...shkwa.map(
                                   (e) => RichText(
                                       text: TextSpan(
                                           style: ktsLargeText,
