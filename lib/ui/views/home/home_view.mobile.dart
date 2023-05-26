@@ -95,7 +95,10 @@ class HomeViewMobile extends ViewModelWidget<HomeViewModel> {
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: kcPrimaryColor,
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, '/contact-us');
+                                      },
                                       child: const Text(
                                         "تواصل معنا الان",
                                         style: TextStyle(color: Colors.white),
@@ -126,8 +129,11 @@ class HomeViewMobile extends ViewModelWidget<HomeViewModel> {
                                 style: ktsRegularText,
                               ),
                               verticalSpaceMedium,
-                              const myElevButton(
+                              myElevButton(
                                 txt: "قراءة المزيد",
+                                onTapHandler: () {
+                                  Navigator.pushNamed(context, '/about-us');
+                                },
                               )
                             ],
                           ),
@@ -206,9 +212,13 @@ class HomeViewMobile extends ViewModelWidget<HomeViewModel> {
                                         fontSize: 14,
                                       )),
                                   verticalSpaceMassive,
-                                  const Center(
+                                  Center(
                                     child: myElevButton(
                                       txt: "مشاهدة جميع الخدمات",
+                                      onTapHandler: () {
+                                        Navigator.pushNamed(
+                                            context, '/our-services');
+                                      },
                                     ),
                                   )
                                 ]),

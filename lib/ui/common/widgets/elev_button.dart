@@ -26,7 +26,7 @@ class myElevButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             backgroundColor: colorButton ?? kcPrimaryColor,
           ),
-          onPressed: () {},
+          onPressed: onTapHandler ?? () {},
           child: Text(
             txt ?? "",
             style: TextStyle(color: colorText ?? Colors.white),
